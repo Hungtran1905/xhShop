@@ -1,0 +1,108 @@
+<header class="header">
+    <div class="flex items-center justify-between px-10">
+        <div style="display: flex; align-items: center; gap: 16px; flex:1;">
+            <a class="logo no-underline hover:no-underline" href="/">xH <span>Shop</span></a>
+            <form action="/product" method="get" class="search-bar"
+                style="flex:1; display:flex; justify-content:center; margin-left:32px;">
+                <input type="text" name="q" id="searchInput" placeholder="商品を検索..."
+                    style="width:320px; padding:8px 16px; border-radius:8px; border:1px solid #ccc; font-size:1rem;"
+                    required>
+                <button type="submit" class="btn"
+                    style="margin-left:8px; background:var(--primary-color); color:#fff; border-radius:8px; padding:8px 24px; font-size:1rem;">
+                    検索
+                </button>
+            </form>
+
+        </div>
+        <nav class="nav">
+            <ul style="display: flex;align-items: center;">
+                <!-- <a href="/"><i class="ti-home"></i> ホーム</a> -->
+                <li><a href="/product"><i class="ti-package"></i> 商品</a></li>
+                <li><a href="/help"><i class="ti-headphone-alt"></i> サポート</a></li>
+                <button id="cartBtn" class="btn" onclick="location.href='/cartPage'"
+                    style="background:var(--primary-color); color:#fff; border-radius:50%; width:44px; height:44px; padding:0; display:flex; align-items:center; justify-content:center; font-size:1.3rem;">
+
+                    <i class="ti-shopping-cart"></i>
+                    <!-- <span id="cartCount"
+                        style="background:#fff; color:var(--primary-color); border-radius:50%; font-size:0.9rem; padding:2px 7px; margin-left:2px; min-width:22px; text-align:center;">0</span> -->
+                </button>
+                <% if (userId) { %>
+                    <div class="flex items-center gap-2">
+                        <span class="text-base text-[#555555]">ようこそ、<span class="text-primary">
+                                <%= userName %>
+                            </span> さん</span>
+
+                        <div class="dropdown relative user-img-ctn rounded-[50%] border overflow-hidden size-[50px] cursor-pointer"
+                            id="userAvatarMenu">
+
+                            <a href="/user">
+
+                                <img class="dropbtn size-[50px]" src="/images/users/<%= userImg %>" alt="userImg">
+                            </a>
+                        </div>
+                        <button class="btn ml-[12px]" id="logoutBtn" onclick="clearCart()">ログアウト</button>
+                    </div>
+
+                    <% }else { %>
+                        <div class="flex gap-2">
+                            <button class="btn" id="loginBtn" style="margin-left:24px;">ログイン</button>
+                            <button class="btn" id="registerBtn" style="margin-left:12px; color:#fff;">登録</button>
+                        </div>
+                        <% } %>
+
+
+                            <!-- Modal Giỏ hàng -->
+                            <%-include('./cart-modal.ejs') %>
+            </ul>
+        </nav>
+        </script>
+    </div>
+    <!-- Modal Đăng ký/Đăng nhập -->
+    <div class="auth-modal-bg none" id="authModalBg">
+        <div class="auth-modal" id="authModal">
+            <button class="close-btn" id="closeAuth">&times;</button>
+            <div id="authForms">
+                <div id="loginModal">
+                    <h2 class="cursor-pointer" onclick='location.href="/auth/login"'>ログインへ</h2>
+                    <form id="loginForm">
+                        <input type="email" name="email" placeholder="メールアドレス" required>
+                        <input type="password" name="password" placeholder="パスワード" required>
+                        <div class="auth-error" id="loginError"></div>
+                        <button class="btn" type="submit">ログイン</button>
+                    </form>
+
+                    <div class="switch-link">アカウントがありませんか？登録</div>
+                </div>
+                <div id="registerModal">
+                    <h2 class="cursor-pointer text-2xl" onclick='location.href="/auth/register"'>登録へ</h2>
+                    <form id="registerForm">
+                        <input type="text" minlength="5" maxlength="100" id="regUsername" placeholder="メールアドレス"
+                            name="email" required>
+                        <input type="text" id="regFullName" minlength="3" maxlength="50" placeholder="氏名"
+                            name="fullName" required>
+                        <input type="password" id="regPassword" minlength="6" maxlength="128" placeholder="パスワード"
+                            name="password" required>
+                        <input type="password" id="regPassword2" minlength="6" maxlength="128" placeholder="パスワードを再入力"
+                            name="confirmPassword" required>
+                        <div class="auth-error" id="registerError"></div>
+                        <select name="gender" id="regGender"
+                            class="block w-full p-[10px] cursor-pointer rounded-lg border border-gray-400 text-base"
+                            required>
+                            <option value="male">男性</option>
+                            <option value="female">女性</option>
+                            <option value="other">その他</option>
+                        </select>
+                        <button class="btn" type="submit">登録</button>
+                    </form>
+                    <div class="switch-link">すでにアカウントをお持ちですか？ログイン</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Toast container -->
+    <div id="toast"
+        class="fixed top-20 left-[30%] bg-primary text-white text-center shadow z-[9999] 
+            opacity-0 translate-x-full transition-all duration-500 w-[600px] box-shadow-primary p-[20px] rounded-[40px]">
+    </div>
+</header>
+<script src="/js/auth.js"></script>

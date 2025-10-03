@@ -1,0 +1,27 @@
+<section class="category-main" style="margin:40px 0;">
+    <div style="display:flex;">
+        <aside class="category-sidebar">
+            <h3>カテゴリー</h3>
+            <ul>
+                <li>
+                    <a href="/product" class="<%= category === '' ? 'btn-active' : '' %>">すべて</a>
+                </li>
+                <li><a href="/product?category=accessories"
+                        class="<%= category === 'accessories' ? 'btn-active' : '' %>">アクセサリー</a></li>
+                <li><a href="/product?category=shoes" class="<%= category === 'shoes' ? 'btn-active' : '' %>">靴</a></li>
+                <li><a href="/product?category=bags" class="<%= category === 'bags' ? 'btn-active' : '' %>">バッグ</a></li>
+                <li><a href="/product?category=jewelry"
+                        class="<%= category === 'jewelry' ? 'btn-active' : '' %>">ジュエリー</a></li>
+                <li><a href="/product?category=cosmetics"
+                        class="<%= category === 'cosmetics' ? 'btn-active' : '' %>">化粧品</a></li>
+                <li><a href="/product?category=kids" class="<%= category === 'kids' ? 'btn-active' : '' %>">子供服</a></li>
+            </ul>
+        </aside>
+
+        <main style="flex:1;">
+            <div class="product-banner">
+                <marquee behavior="scroll" direction="left" scrollamount="6"
+                    style="color:var(--primary-color); font-size:1.08rem; background:#fff0f6;  border-radius:8px;">
+                    🔥 特別キャンペーン：1点以上のご注文で10%オフ！｜5000円以上のご注文で全国送料無料｜新商品毎日更新！
+                </marquee>
+            </div>

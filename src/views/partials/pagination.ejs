@@ -1,0 +1,8 @@
+<div class="flex justify-center space-x-2 mt-6">
+  <% for(let i=1; i <=totalPages; i++) { %>
+    <a href="?page=<%= i %>&limit=10"
+      class="px-3 py-1 rounded-lg <%= currentPage === i ? 'bg-[var(--primary-color)] text-white' : 'bg-gray-200 ' %> no-underline">
+      <%= i %>
+    </a>
+    <% } %>
+</div>

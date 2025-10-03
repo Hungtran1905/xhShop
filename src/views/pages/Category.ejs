@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xH Shop - カテゴリー</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/category.css">
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="/themify-icons/themify-icons.css">
+
+</head>
+
+<body>
+
+    <%- include('../partials/header.ejs') %>
+        <%- include('../partials/category-sidebar.ejs') %>
+            <div class="category-nav-x" style="display: flex;justify-content: space-around;flex-wrap: wrap;">
+                <a href="/product?gender=men" class="btn <%= gender === 'men' ? 'btn-active' : '' %>">メンズ</a>
+                <a href="/product?gender=women" class="btn <%= gender === 'women' ? 'btn-active' : '' %>">レディース</a>
+                <a href="/product?gender=unisex" class="btn <%= gender === 'unisex' ? 'btn-active' : '' %>">ユニセックス</a>
+                <a href="/product?category=T-shirt"
+                    class="btn <%= category === 'T-shirt' ? 'btn-active' : '' %>">T-シャツ</a>
+                <a href="/product?category=pants" class="btn <%= category === 'pants' ? 'btn-active' : '' %>">パンツ</a>
+                <a href="/product?category=dress" class="btn <%= category === 'dress' ? 'btn-active' : '' %>">ドレス</a>
+                <a href="/product?category=denim" class="btn <%= category === 'denim' ? 'btn-active' : '' %>">デニム</a>
+                <a href="/product?category=hoodie"
+                    class="btn <%= category === 'hoodie' ? 'btn-active' : '' %>">フーディー</a>
+                <a href="/product?category=jacket"
+                    class="btn <%= category === 'jacket' ? 'btn-active' : '' %>">ジャケット</a>
+            </div>
+
+            <section class="category-main my-10">
+                <div class="container !px-[45px]">
+                    <% if(keyword) { %>
+                        <div class="text-xl mb-4">Search results for“<span class="text-primary">
+                                <%= keyword %>
+                            </span>”</div>
+                        <% } %>
+                            <div class="category-list text-center w-full">
+                                <% products.forEach(product=> { %>
+                                    <div data-id="<%= product._id %>" class="category-item w-[260px] bg-white rounded-[20px] shadow-[0_4px_16px_rgba(233,30,99,0.10)] 
+                                    px-5 pt-7 pb-6 text-center  mb-8  
+                                        transition duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02]">
+                                        <% if(product.images && product.images.length> 0) { %>
+                                            <div class="m-0 p-0 w-full h-[250px] object-cover rounded-[8px] overflow-hidden"
+                                                onclick="window.location.href='/productDetail/<%= product._id %>'">
+                                                <img src="/images/product/<%= product.images[0] %>"
+                                                    alt="<%= product.name %>"
+                                                    class="product-img w-full h-full object-cover cursor-pointer">
+                                            </div>
+                                            <% } %>
+                                                <h3 class="product-title">
+                                                    <%= product.name %>
+                                                </h3>
+                                                <p class="product-desc">
+                                                    <%= product.description %>
+                                                </p>
+                                                <span class="product-price" style="margin: auto;">
+                                                    <%= product.price %>¥
+                                                </span>
+                                                <button class="view-product-btn btn product-btn "
+                                                    data-id="<%= product._id %>">商品を購入</button>
+                                    </div>
+                                    <% }) %>
+                            </div>
+                </div>
+            </section>
+            </main>
+            </div>
+            <%- include('../partials/pagination.ejs') %>
+                <%- include('../partials/category-modal.ejs') %>
+                    <%- include('../partials/footer.ejs') %>
+
+</body>
+<script src="/js/script.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/modal.js"></script>
+
+
+</html>

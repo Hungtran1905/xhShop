@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= product.name %> | ShopQuầnÁo
+    </title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <!-- <link rel="stylesheet" href="/css/category.css"> -->
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="/themify-icons/themify-icons.css">
+
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+        <%- include('../partials/cart-modal.ejs'); %>
+
+            <div class="max-w-6xl mx-auto py-10 px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow rounded-2xl p-6">
+
+                    <!-- Ảnh sản phẩm -->
+                    <div class="flex gap-4">
+                        <!-- Thumbnail nhỏ -->
+                        <div class="flex flex-col gap-3 w-20 h-20" style="width: 100px;">
+                            <% if (product.images && product.images.length> 0) { %>
+                                <% product.images.forEach((img, i)=> { %>
+                                    <img src="/images/product/<%= img %>" style="height: 100px;"
+                                        class="w-full h-24 object-cover rounded-lg cursor-pointer border hover:border-[var(--primary-color)] thumbnail"
+                                        data-index="<%= i %>">
+                                    <% }) %>
+                                        <% } %>
+                        </div>
+
+                        <!-- Ảnh chính -->
+                        <div class="flex-1">
+                            <img id="mainImage" src="/images/product/<%= product.images[0] %>" alt="<%= product.name %>"
+                                style="height: 450px;" class="w-full h-[450px] object-cover rounded-lg shadow">
+                        </div>
+                    </div>
+
+
+
+                    <div class="flex flex-col space-y-6 p-6 bg-white rounded-2xl shadow-md border border-gray-100"
+                        style="margin: -24px 0;">
+                        <!-- Tên + Giá -->
+                        <div>
+                            <h3 class="text-xs text-gray-500 tracking-wide" style="font-size: 10px;">
+                                ブランド名: <%= product.brand %>
+                            </h3>
+                            <h1 class="text-3xl md:text-4xl font-bold mb-3 text-[var(--primary-color)]">
+                                <%= product.name %>
+                            </h1>
+                            <p class="text-gray-700 leading-relaxed">
+                                <%= product.description %>
+                            </p>
+                        </div>
+
+                        <!-- Loại sản phẩm -->
+                        <p class="text-gray-700 font-medium">
+                            種類: <span class="text-gray-900">
+                                <%= product.category %>
+                            </span>
+                        </p>
+
+                        <!-- Giá -->
+                        <div style="display: flex;justify-content: space-between;align-items: center;">
+                            <div>
+                                <p class="text-2xl md:text-3xl font-black text-[var(--primary-color)]">
+                                    単価 : <%= product.price.toLocaleString() %> ¥
+                                </p>
+                            </div>
+                            <div id="sizeWarning"
+                                style="display:none;color:var(--primary-color);font-size:1rem;margin-top:8px;text-align:center;">
+                                サイズを選択してください！
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+
+                            <!-- Chọn size -->
+                            <div>
+                                <h3 class="font-semibold mb-2 text-gray-800">サイズ</h3>
+                                <div class="flex gap-3 flex-wrap">
+                                    <% product.sizes.forEach(size=> { %>
+                                        <button
+                                            class="px-4 py-2 border rounded-lg text-gray-700 hover:bg-[color-mix(in srgb,var(--primary-color)_20%,white)] hover:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)] transition cursor-pointer">
+                                            <%= size %>
+                                        </button>
+                                        <% }) %>
+                                </div>
+                            </div>
+
+                            <!-- Chọn số lượng -->
+                            <div>
+                                <h3 class="font-semibold mb-2 text-gray-800">数量</h3>
+                                <div class="flex items-center border rounded-lg w-36 overflow-hidden"
+                                    style="width: fit-content;">
+                                    <button type="button"
+                                        class="px-3 py-2 text-lg font-bold text-gray-600 hover:bg-gray-100 dec cursor-pointer">-</button>
+                                    <input id="quantity" type="number" value="1" min="1"
+                                        style="height: -webkit-fill-available;"
+                                        class="quantity w-full text-center border-x focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]">
+                                    <button type="button"
+                                        class="px-3 py-2 text-lg font-bold text-gray-600 hover:bg-gray-100 inc cursor-pointer">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nút hành động -->
+                        <div class="flex flex-col sm:flex-row gap-4 mt-6 ">
+                            <button id="modalAddToCartDetail" style="height: 50px;border-radius: 10px;"
+                                class="w-full bg-[var(--primary-color)] hover:bg-[color-mix(in srgb,var(--primary-color)_80%,black)] text-white rounded-xl py-3 text-lg font-semibold transition cursor-pointer ">
+                                カートに追加
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Footer -->
+            <%- include('../partials/footer.ejs') %>
+                <script src="/js/script.js"></script>
+                <script src="/js/cart.js"></script>
+                <script src="/js/modal.js"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Xử lý chọn size
+                        let selectedSize = null;
+                        document.querySelectorAll('.flex.gap-3.flex-wrap button').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                document.querySelectorAll('.flex.gap-3.flex-wrap button').forEach(b => b.classList.remove('bg-[var(--primary-color)]', 'text-white', 'border-[var(--primary-color)]'));
+                                btn.classList.add('bg-[var(--primary-color)]', 'text-white', 'border-[var(--primary-color)]');
+                                selectedSize = btn.textContent.trim();
+                            });
+                        });
+
+                        // Xử lý tăng giảm số lượng
+                        const decBtn = document.querySelector('.dec');
+                        const incBtn = document.querySelector('.inc');
+                        const quantityInput = document.getElementById('quantity');
+                        decBtn.onclick = function () {
+                            let val = parseInt(quantityInput.value);
+                            if (val > 1) quantityInput.value = val - 1;
+                        };
+                        incBtn.onclick = function () {
+                            let val = parseInt(quantityInput.value);
+                            quantityInput.value = val + 1;
+                        };
+
+                        // Xử lý thêm vào giỏ hàng
+                        const detailBtn = document.getElementById('modalAddToCartDetail');
+                        detailBtn.onclick = function () {
+                            const quantity = parseInt(quantityInput.value);
+                            const size = selectedSize;
+                            const sizeWarning = document.getElementById('sizeWarning');
+                            if (!size) {
+                                sizeWarning.style.display = 'block';
+                                setTimeout(() => { sizeWarning.style.display = 'none'; }, 2000);
+                                return;
+                            }
+                            sizeWarning.style.display = 'none';
+                            const product = {
+                                id: '<%= product._id %>',
+                                name: '<%= product.name %>',
+                                price: Number('<%= product.price %>'),
+                                image: '<%= product.images[0] %>',
+                                size: size,
+                                quantity: quantity
+                            };
+                            addToCart(product);
+                            const addToCartBtn = document.getElementById('modalAddToCartDetail');
+                            addToCartBtn.textContent = '追加した！';
+                            setTimeout(() => addToCartBtn.textContent = 'カートに追加', 1000);
+                            // Cập nhật số lượng hiển thị trên icon giỏ hàng
+                            if (typeof updateCartCount === 'function') {
+                                updateCartCount();
+                            } else {
+                                var cartCount = document.getElementById('cartCount');
+                                if (cartCount) cartCount.textContent = cart.length;
+                            }
+                        };
+
+                        // Xử lý hình thu nhỏ
+                        const thumbnails = document.querySelectorAll('.thumbnail');
+                        const mainImage = document.getElementById('mainImage');
+                        thumbnails.forEach((thumb, idx) => {
+                            thumb.addEventListener('click', function () {
+                                mainImage.src = thumb.src;
+                                thumbnails.forEach(t => t.classList.remove('border-pink-600'));
+                                thumbnails.forEach(t => t.classList.add('border-gray-200'));
+                                thumb.classList.remove('border-gray-200');
+                                thumb.classList.add('border-pink-600');
+                            });
+                        });
+
+
+                    });
+                </script>
+</body>
+
+</html>

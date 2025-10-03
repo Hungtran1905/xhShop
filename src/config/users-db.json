@@ -1,0 +1,12 @@
+[
+    {
+        "user_name":"thanhson",
+        "user_email":"thanhson@example.com",
+        "user_password":"password123",
+        "user_img":"profile.jpg",
+        "user_sex":"male",
+        "user_role":"customer",
+        "create_at":"2023-01-01",
+        "update_at":"2023-01-01"
+    }
+]

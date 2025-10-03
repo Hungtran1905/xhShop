@@ -1,0 +1,19 @@
+.size-btn {
+    @apply px-4 py-2 border rounded hover:border-black transition;
+}
+
+.qty-btn {
+    @apply px-3 py-1;
+}
+
+.action-btn {
+    @apply px-6 py-3 rounded-lg shadow text-white font-semibold transition;
+}
+
+.add-cart {
+    @apply bg-black hover:opacity-80;
+}
+
+.buy-now {
+    @apply bg-red-500 hover:bg-red-600;
+}

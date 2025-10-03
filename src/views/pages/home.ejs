@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xH Shop - 現代のファッション</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <link rel="stylesheet" href="/css/swiper.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <section class="banner">
+            <div class="container">
+                <h1>現代的でスタイリッシュなファッション</h1>
+                <p>xHショップの最新コレクションをチェック</p>
+                <a href="#sanpham" class="btn">今すぐ購入</a>
+            </div>
+        </section>
+        <section class="categories">
+            <div class="container">
+                <h2>注目カテゴリー</h2>
+                <div class="swiper category-swiper">
+                    <div class="swiper-wrapper">
+                        <% products.forEach(product=> { %>
+                            <div class="swiper-slide category-item">
+                                <a href="/productDetail/<%= product._id %>">
+                                    <img class="swiper-img" src="/images/product/<%= product.images[0] %>"
+                                        alt="<%= product.name %>">
+                                </a>
+                            </div>
+                            <% }) %>
+                    </div>
+
+                    <!-- Nút điều hướng -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                    <!-- Dấu chấm chỉ số -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="products" id="sanpham">
+            <div class="container">
+                <h2>注目商品</h2>
+                <div class="product-list">
+                    <% products.forEach((product, index)=> { %>
+                        <% if(index < 3) { %> <!-- Chỉ hiển thị 3 sản phẩm đầu -->
+                            <div class="product-item cursor-pointer"
+                                onclick="window.location.href='/productDetail/<%= product._id %>'">
+                                <img src="/images/product/<%= product.images[0] %>" alt="<%= product.name %>">
+                                <h3>
+                                    <%= product.name %>
+                                </h3>
+                                <p class="price">
+                                    <%= product.price %>¥
+                                </p>
+                            </div>
+                            <% } %>
+                                <% }) %>
+
+                </div>
+            </div>
+        </section>
+        <section class="about" id="about">
+            <div class="container">
+                <h2>xHショップについて</h2>
+                <p>xHショップは、現代的で高品質なファッション商品を手頃な価格で提供します。親切なスタッフ、迅速な配送。</p>
+            </div>
+        </section>
+        <%- include('../partials/footer.ejs') %>
+
+            <!-- Swiper JS -->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/swiper.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/modal.js"></script>
+
+</html>

@@ -1,0 +1,6 @@
+.shipping-btn {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    line-height: 2.5;
+}

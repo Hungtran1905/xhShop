@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/css/register.css">
+    <title>Register — xH Shop</title>
+</head>
+
+<body>
+    <main class="card">
+        <h1>アカウントを登録する</h1>
+        <p class="muted">新しいアカウントを作成するための情報を入力してください</p>
+
+        <form id="registerForm" novalidate>
+            <div>
+                <label for="fullName">氏名</label>
+                <input id="fullName" name="fullName" class="input" placeholder="Kibutsuji Muzan" required>
+                <div class="error-text" id="nameError">お名前を入力してください！</div>
+            </div>
+
+            <div>
+                <label for="email">メール</label>
+                <input id="email" name="email" type="email" class="input" placeholder="you@domain.com" required>
+                <div class="error-text" id="emailError">有効なメールアドレスを入力してください！</div>
+            </div>
+
+            <div>
+                <label for="password">パスワード</label>
+                <input id="password" name="password" type="password" class="input" placeholder="●●●●●●" required
+                    minlength="6">
+                <div class="error-text" id="passError">パスワードは6文字以上！</div>
+            </div>
+
+            <div>
+                <label for="confirmPassword">パスワードを再入力</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" class="input" placeholder="●●●●●●"
+                    required>
+                <div class="error-text" id="confirmError">パスワードが一致しません</div>
+            </div>
+
+            <div>
+                <label for="gender">性別</label>
+                <select id="gender" name="gender" class="input" required>
+                    <option value="" disabled selected>性別を選択</option>
+                    <option value="male">男</option>
+                    <option value="female">女</option>
+                    <option value="other">その他</option>
+                </select>
+                <div class="error-text" id="genderError">性別を選択してください！</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">登録</button>
+        </form>
+
+        <p class="footer-note">すでにアカウントをお持ちですか? <a href="/auth/login"
+                style="color:var(--accent);font-weight:600">ログイン</a></p>
+    </main>
+
+    <div id="toast"></div>
+
+    <script src="/js/register.js"></script>
+</body>
+
+</html>

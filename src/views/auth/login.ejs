@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Login — xH Shop</title>
+</head>
+
+<body>
+    <main class="card" role="main" aria-labelledby="loginTitle">
+        <section class="hero" aria-hidden="false">
+            <div class="brand">
+                <div class="logo" aria-hidden> xH </div>
+                <div>
+                    <div style="font-size:12px;color:var(--muted)">Welcome back to</div>
+                    <h1 id="loginTitle">xH Shop — 安全なログイン</h1>
+                </div>
+            </div>
+            <p class="lead">高速、安全、そして美しい - ログインしてストアの管理や購入を続けましょう</p>
+
+            <div class="illus" aria-hidden>
+                <div class="bubble">Recent activity &amp; offers</div>
+                <div class="bubble" style="flex:0.8">Secure & encrypted</div>
+            </div>
+        </section>
+
+        <section class="form-area" aria-labelledby="formHeading">
+            <div class="card-inner">
+                <h2 id="formHeading" style="margin:0 0 8px 0;">アカウントにサインイン</h2>
+                <p class="muted" style="margin:0 0 12px 0">メールアドレスとパスワードを入力してください!</p>
+
+                <form id="loginForm" novalidate>
+                    <div>
+                        <label for="email">メール</label>
+                        <input id="email" name="email" class="input" type="email" required placeholder="you@domain.com"
+                            autocomplete="username">
+                        <div class="error-text" id="emailError" style="display:none">有効なメールアドレスを入力してください！</div>
+                    </div>
+
+                    <div>
+                        <label for="password">パスワード <span class="toggle-pass" id="togglePass">Show</span></label>
+                        <input id="password" name="password" class="input" type="password" required placeholder="●●●●●●"
+                            autocomplete="current-password">
+                        <div class="error-text" id="passError" style="display:none">パスワードは6文字以上でなければなりません!</div>
+                    </div>
+
+                    <div class="row actions">
+                        <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="remember">
+                            暗記する</label>
+                        <a href="#" id="forgotLink" class="muted" onclick="event.preventDefault();">パスワードをお忘れですか？</a>
+                    </div>
+
+                    <div class="row" style="margin-top:6px">
+                        <button type="submit" class="btn btn-primary">ログイン</button>
+                        <button type="button" class="btn btn-ghost" onclick="onGuest()">ゲストモード</button>
+                    </div>
+
+                    <div style="display:flex;align-items:center;gap:12px;margin-top:8px">
+                        <div style="flex:1;height:1px;background:rgba(255,255,255,0.03)"></div>
+                        <div class="muted">又は</div>
+                        <div style="flex:1;height:1px;background:rgba(255,255,255,0.03)"></div>
+                    </div>
+
+                    <div class="socials" style="margin-top:8px">
+                        <button type="button" class="social" onclick="onSocial('google')">Google</button>
+                        <button type="button" class="social" onclick="onSocial('github')">GitHub</button>
+                        <button type="button" class="social" onclick="onSocial('facebook')">Facebook</button>
+                    </div>
+                </form>
+
+                <p class="footer-note" style="margin-top:12px">アカウントをお持ちではありませんか？ <a href="#"
+                        style="color:var(--accent);font-weight:600" onclick='location.href="/auth/register"'>登録</a>
+                </p>
+            </div>
+
+            <div style="margin-top:10px;color:var(--muted);font-size:12px">セキュリティ:すべてのデータは暗号化されます。2FAとレート制限をサポートします。
+            </div>
+        </section>
+    </main>
+    <!-- Quên mật khẩu modal -->
+    <div id="forgotModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; 
+    background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000;">
+        <div style="background:var(--glass-2); padding:28px; border-radius:14px; width:320px; text-align:center;">
+            <h2>パスワードが忘れた</h2>
+            <p class="muted">パスワードリセットリンクを受け取るにはメールアドレスを入力してください！</p>
+            <input type="email" id="forgotEmail" class="input" placeholder="you@domain.com" required>
+            <div class="error-text" id="forgotError">有効なメールアドレスを入力してください！</div>
+            <button id="forgotSubmit" class="btn btn-primary" style="margin-top:12px;"
+                onclick="alert('Chưa hoàn thiện tính năng này!この機能はまだ完成していません。')">メールを送る</button>
+            <button id="forgotClose" class="btn btn-ghost" style="margin-top:8px;">キャンセル</button>
+        </div>
+    </div>
+
+    <script src="/js/login.js"></script>
+</body>
+
+</html>

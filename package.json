@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "npx tailwindcss -i ./src/public/css/input.css -o ./src/public/css/output.css --watch *> $null",
+    "dev": "concurrently -n CSS,SERVER -c blue,green \"npm run build:css\" \"nodemon server.js"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "brcypt": "^1.0.1",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mongoose": "^8.18.0",
+    "passport": "^0.7.0",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}

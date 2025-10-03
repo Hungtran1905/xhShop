@@ -1,0 +1,18 @@
+<!-- Modal Giỏ hàng -->
+<div class="auth-modal-bg" id="cartModalBg"
+    style="z-index:1100; display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); justify-content:center; align-items:center;">
+    <div class="auth-modal" id="cartModal"
+        style="min-width:340px;max-height: 60vh; background:#fff; border-radius:12px; box-shadow:0 2px 12px #eee; position:relative; padding:24px;overflow-y: auto;">
+        <button class="close-btn" id="closeCart"
+            style="position:absolute; top:12px; right:18px; font-size:1.5rem; color:var(--primary-color); cursor:pointer; background:none; border:none;">&times;</button>
+
+        <h2 style="color:var(--primary-color); text-align:center;">あなたのカート</h2>
+
+        <div id="cartItems"></div>
+        <div id="cartTotal" style="margin-top:16px; font-weight:bold; text-align:right;"></div>
+        <div class="flex justify-center items-center ">
+            <a class="btn text-center" href="/cartPage" style="color: #fff;">カートへ</a>
+            <a id="checkoutBtn" class="btn text-center" href="/shipping" style="color: #fff;">レジに進む</a>
+        </div>
+    </div>
+</div>

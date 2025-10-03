@@ -1,0 +1,380 @@
+[
+    {
+        "name": "レディース スポーツTシャツ",
+        "description": "半袖 カジュアル スポーツTシャツ 夏用",
+        "category": "T-shirt",
+        "brand": "DAZY",
+        "price": 1230,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "ao2.webp",
+            "ao2-1.webp",
+            "ao2-2.webp",
+            "ao2-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "メンズポロシャツ ",
+        "description": "短袖 カラーブロック＆レタープリント ",
+        "category": "T-shirt",
+        "brand": "Manfinity Hypemodep",
+        "price": 1480,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "aonam2.webp",
+            "aonam2-1.webp",
+            "aonam2-2.webp",
+            "aonam2-3.webp"
+        ],
+        "gender": "men"
+    },
+    {
+        "name": "フェルトパンツ ",
+        "description": "メンズカジュアルルーズストレートレッグパンツ",
+        "category": "pants",
+        "brand": "Manfinity Hypemode",
+        "price": 2375,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "quannam2.webp",
+            "quannam2-1.webp",
+            "quannam2-2.webp",
+            "quannam2-3.webp"
+        ],
+        "gender": "men"
+    },
+    {
+        "name": "グラフィックTシャツ",
+        "description": "レディース グレー コントラスト レタープリント Tシャツ",
+        "category": "T-shirt",
+        "brand": "Dazy Petite Plus",
+        "price": 520,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "aonu2.webp",
+            "aonu2-1.webp",
+            "aonu2-2.webp",
+            "aonu2-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "ロングパンツ Y2K",
+        "description": "ローライズの伸縮性ウエストバンドパンツ",
+        "category": "pants",
+        "brand": "Dazy",
+        "price": 1680,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "quannu1.webp",
+            "quannu1-1.webp",
+            "quannu1-2.webp",
+            "quannu1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "グラフィックTシャツ",
+        "description": "レディース グレー コントラスト レタープリント Tシャツ",
+        "category": "T-shirt",
+        "brand": "Dazy Petite Plus",
+        "price": 520,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "aonu2.webp",
+            "aonu2-1.webp",
+            "aonu2-2.webp",
+            "aonu2-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "ロングパンツ Y2K",
+        "description": "ローライズの伸縮性ウエストバンドパンツ",
+        "category": "pants",
+        "brand": "Dazy",
+        "price": 1680,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "quannu1.webp",
+            "quannu1-1.webp",
+            "quannu1-2.webp",
+            "quannu1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "ワンピースドレス",
+        "description": "カジュアル レディースドレス セクシーなボタンサマードレス",
+        "category": "dress",
+        "brand": "Dazy",
+        "price": 2300,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "vaynu1.webp",
+            "vaynu1-1.webp",
+            "vaynu1-2.webp",
+            "vaynu1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "ファッションメガネ",
+        "description": "メテオクラシックスクエアファッショングラス、ストリートファッション",
+        "category": "accessories",
+        "brand": "Dazy",
+        "price": 215,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "phukien1.webp",
+            "phukien1-1.webp",
+            "phukien1-2.webp",
+            "phukien1-3.webp"
+        ],
+        "gender": "unisex"
+    },
+    {
+        "name": "スポーツ靴",
+        "description": " メンズカジュアル ソフトボトム ラウンドトゥ レースアップスニーカー",
+        "category": "shoes",
+        "brand": "BAIMUYUAN SHOES",
+        "price": 2150,
+        "sizes": [
+            "25",
+            "26",
+            "27",
+            "28"
+        ],
+        "images": [
+            "giay1.webp",
+            "giay1-1.webp",
+            "giay1-2.webp",
+            "giay1-3.webp"
+        ],
+        "gender": "men"
+    },
+    {
+        "name": "大容量 PU トートバッグ",
+        "description": "ミニマリストでファッションなオフィスレディのショルダーバッグ",
+        "category": "bags",
+        "brand": "Echo of youth",
+        "price": 1350,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "capnu1.webp",
+            "capnu1-1.webp",
+            "capnu1-2.webp",
+            "capnu1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "peach tree 1個 ミニマリスト",
+        "description": "ミウォッシュデニム&キャンバス ショルダーバッグ、大容量クロスボディバッグ メンズ用",
+        "category": "bags",
+        "brand": "Colorful Juveniles",
+        "price": 970,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "capnam1.webp",
+            "capnam1-1.webp",
+            "capnam1-2.webp",
+            "capnam1-3.webp"
+        ],
+        "gender": "unisex"
+    },
+    {
+        "name": "チェリーネックレス ",
+        "description": "ゴシック ガール コラボンチェーン ヴィンテージジュエリー 女性用",
+        "category": "jewelry",
+        "brand": "cin tian you",
+        "price": 2500,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "trangsuc1.webp",
+            "trangsuc1-1.webp",
+            "trangsuc1-2.webp",
+            "trangsuc1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "星のイヤリング",
+        "description": "レディース ヴィンテージ ジュエリー ゴールドトーン スター ドロップイヤリング",
+        "category": "jewelry",
+        "brand": "cin tian you",
+        "price": 2300,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "trangsuc2.webp",
+            "trangsuc2-1.webp",
+            "trangsuc2-2.webp",
+            "trangsuc2-3.webp"
+        ],
+        "gender": "unisex"
+    },
+    {
+        "name": "Periperaブラッシュパレット",
+        "description": "多機能チークパレット、自然な血色感を演出",
+        "category": "cosmetics",
+        "brand": "Chic Beauty Brands Collection",
+        "price": 1100,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "mypham1.webp",
+            "mypham1-1.webp",
+            "mypham1-2.webp",
+            "mypham1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "丸首半袖Tシャツ",
+        "description": "10代の女の子向けの快適なスポーツTシャツ",
+        "category": "kids",
+        "brand": "SHEIN Kidsn",
+        "price": 2300,
+        "sizes": [
+            "フリーサイズ"
+        ],
+        "images": [
+            "trecon1.webp",
+            "trecon1-1.webp",
+            "trecon1-2.webp",
+            "trecon1-3.webp"
+        ],
+        "gender": "unisex"
+    },
+    {
+        "name": "ドローストリングウエストジーンズ",
+        "description": "ウエストのドローストリングが特徴のカジュアルなジーンズ",
+        "category": "denim",
+        "brand": "Xqing",
+        "price": 2880,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "denim1.webp",
+            "denim1-1.webp",
+            "denim1-2.webp",
+            "denim1-3.webp"
+        ],
+        "gender": "men"
+    },
+    {
+        "name": "ポケット付きワイドレッグジーンズ",
+        "description": "レディース カーゴポケットワイドレッグ カジュアルジーンズ",
+        "category": "denim",
+        "brand": "KAYV",
+        "price": 2400,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "denim2.webp",
+            "denim2-1.webp",
+            "denim2-2.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "LOFTY フェルトジャケット",
+        "description": "暖かくてスタイリッシュなフェルトジャケット",
+        "category": "jacket",
+        "brand": "Dazy",
+        "price": 2600,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "hoodie1.webp",
+            "hoodie1-1.webp",
+            "hoodie1-2.webp",
+            "hoodie1-3.webp"
+        ],
+        "gender": "women"
+    },
+    {
+        "name": "NYC フェルトジャケット",
+        "description": "カジュアルで暖かいフェルトジャケット",
+        "category": "hoodie",
+        "brand": "Dazy",
+        "price": 2700,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "hoodie2.webp",
+            "hoodie2-1.webp",
+            "hoodie2-2.webp",
+            "hoodie2-3.webp"
+        ],
+        "gender": "men"
+    }
+]

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="/themify-icons/themify-icons.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+
+        <main class="container mx-auto px-10 py-10">
+            <div class="bg-white shadow-xl rounded-2xl p-6 md:p-8 space-y-6">
+                <div class="flex items-center text-2xl font-bold text-[var(--primary-color)] cursor-pointer ">
+
+                    <h2>注文履歴</h2>
+                    <a href="/" class="no-underline text-[var(--primary-color)]">
+                        <span style="color: black;padding: 4px;">|</span>情報変更</a>
+                    <a href="/" class="no-underline text-[var(--primary-color)]">
+                        <span style="color: black;padding-right: 4px;">|</span>設定</a>
+                </div>
+
+                <% if (orders.length===0) { %>
+                    <p class="text-gray-500">まだ注文履歴はありません</p>
+                    <% } else { %>
+                        <% orders.forEach((order, idx)=> { %>
+                            <% if(idx !==0) { %>
+                                <hr class="my-10 border-t-4 border-gray-200 rounded-full">
+                                <% } %>
+                                    <div class="border rounded-lg p-4 mb-6">
+                                        <div class="flex justify-between mb-4">
+                                            <span class="font-medium">Order ID: <%= order._id %></span>
+                                            <span class="text-gray-500">日付: <%= order.createdAt.toLocaleString() %>
+                                            </span>
+                                            <span class="font-bold text-[var(--primary-color)]">合計: <%=
+                                                    order.total.toLocaleString() %>¥</span>
+                                        </div>
+
+                                        <div class="overflow-x-auto">
+                                            <table class="w-full border border-gray-200">
+                                                <thead class="bg-gray-100">
+                                                    <tr>
+                                                        <th class="border p-2 text-left" style="width:25%;">商品名</th>
+                                                        <th class="border p-2 text-center" style="width:15%;">サイズ</th>
+                                                        <th class="border p-2 text-center" style="width:15%;">数量</th>
+                                                        <th class="border p-2 text-center" style="width:15%;">単価</th>
+                                                        <th class="border p-2 text-center" style="width:15%;">小計</th>
+                                                        <th class="border p-2 text-center" style="width:15%;">状態</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% order.items.forEach(item=> { %>
+                                                        <tr class="hover:bg-gray-50">
+                                                            <td class="border p-2 truncate text-left"
+                                                                title="<%= item.name %>">
+                                                                <a href="/productDetail/<%= item.productId %>"
+                                                                    class="text-[var(--primary-color)] no-underline">
+                                                                    <%= item.name %>
+                                                                </a>
+                                                            </td>
+                                                            <td class="border p-2 text-center">
+                                                                <%= item.size %>
+                                                            </td>
+                                                            <td class="border p-2 text-center">
+                                                                <%= item.quantity %>
+                                                            </td>
+                                                            <td class="border p-2 text-center">
+                                                                <%= item.price.toLocaleString() %>¥
+                                                            </td>
+                                                            <td class="border p-2 text-center">
+                                                                <%= (item.price * item.quantity).toLocaleString() %>¥
+                                                            </td>
+                                                            <td class="border p-2 text-center">
+                                                                <% if(order.status==="Pending" ){ %>
+                                                                    <span class="text-yellow-600 font-medium">処理中</span>
+                                                                    <% } else if(order.status==="Shipping" ){ %>
+                                                                        <span
+                                                                            class="text-blue-600 font-medium">配送中</span>
+                                                                        <% } else if(order.status==="Completed" ){ %>
+                                                                            <span
+                                                                                class="text-green-600 font-medium">完了</span>
+                                                                            <% } else if(order.status==="Cancelled" ){
+                                                                                %>
+                                                                                <span
+                                                                                    class="text-red-600 font-medium">キャンセル</span>
+                                                                                <% } else { %>
+                                                                                    <span
+                                                                                        class="text-gray-500">不明</span>
+                                                                                    <% } %>
+                                                            </td>
+                                                        </tr>
+                                                        <% }) %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                    </div>
+                                    <% }) %>
+                                        <% } %>
+            </div>
+        </main>
+
+
+        <script src="/js/cart.js"></script>
+
+</body>
+
+</html>
